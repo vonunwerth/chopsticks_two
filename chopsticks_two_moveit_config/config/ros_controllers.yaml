@@ -1,0 +1,40 @@
+position_trajectory_controller:
+  type: position_controllers/JointTrajectoryController
+  joints:
+    - Joint_12
+    - Joint_23
+    - Joint_34
+    - Joint_45
+    - Joint_56
+    - Joint_6G
+  gains:
+    Joint_12:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    Joint_23:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    Joint_34:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    Joint_45:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    Joint_56:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    Joint_6G:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1

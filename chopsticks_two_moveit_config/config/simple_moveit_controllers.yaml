@@ -1,0 +1,12 @@
+controller_list:
+  - name: position_trajectory_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - Joint_12
+      - Joint_23
+      - Joint_34
+      - Joint_45
+      - Joint_56
+      - Joint_6G
