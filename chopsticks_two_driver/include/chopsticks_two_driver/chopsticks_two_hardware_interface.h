@@ -4,7 +4,8 @@
 #include <ros_control_boilerplate/generic_hw_interface.h> //TODO integrate generic_hw_interface.h, control_loop in the driver
 #include <chopsticks_two_driver/armCmd.h>
 #include <chopsticks_two_driver/chopsticksTwoTelemetry.h>
-#include <std_msgs/Float64.h> //TODO only for 1 joint!!! otherwise Float64MultiArray have to be used
+#include <chopsticks_two_driver/armCmd.h>
+#include <chopsticks_two_driver/chopsticksTwoTelemetry.h>
 
 namespace chopsticks_two_ns
 {
@@ -32,8 +33,9 @@ class chopsticks_twoHWInterface : public ros_control_boilerplate::GenericHWInter
 
     protected:
         ros::Subscriber telemetry_sub;
+
         //void telemetryCallback(const chopsticks_two_driver::chopsticks_twoTelemetry::ConstPtr &msg);
-        void telemetryCallback(const std_msgs::Float64 &msg);
+        void telemetryCallback(const chopsticks_two_driver::chopsticksTwoTelemetry::ConstPtr &msg);
 
         ros::Publisher cmd_pub;
 
