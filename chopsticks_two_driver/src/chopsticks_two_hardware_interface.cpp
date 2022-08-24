@@ -15,7 +15,7 @@ namespace chopsticks_two_ns {
     chopsticks_twoHWInterface::telemetryCallback(const chopsticks_two_driver::chopsticksTwoTelemetry::ConstPtr &msg) {
         for (int i = 0; i < num_joints_; i++) {
             joint_position_[i] = msg->angle[i];
-            //joint_velocity_[i] = msg.; //TODO neccassary?
+            //joint_velocity_[i] = msg.;
 
             //joint_position_[i] = msg->angle[i];//Fill here whatever comes from the message form the arduino //TODO change joint limits in the moveit config joint_limits.yaml config file
             //joint_velocity_[i] = msg->vel[i]; //joint_position and velocity requires rad and rad/sec
@@ -33,7 +33,7 @@ namespace chopsticks_two_ns {
         //Is called every control loop
         //Need a read from the robot hardware -> from serial for example
         // No need to read since our write() command populates our state for us
-        ros::spinOnce(); //checks all callbacks TODO in arduino code state feedback is not implemented, will moveits current states stay at 0-config
+        ros::spinOnce(); //checks all callbacks
     }
 
     void chopsticks_twoHWInterface::write(

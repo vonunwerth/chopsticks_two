@@ -1,6 +1,6 @@
 
 generic_hw_control_loop:
-  loop_hz: 200 # not faster than 250hz or you could randomly lose data (if sended via USB)
+  loop_hz: 50 # not faster than 250hz or you could randomly lose data (if sended via USB)
   cycle_time_error_threshold: 0.1
 
 hardware_interface:

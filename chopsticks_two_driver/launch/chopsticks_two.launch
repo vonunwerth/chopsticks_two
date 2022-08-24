@@ -1,33 +1,33 @@
 <launch>
 
     <!-- RVIZ  -->
-    <!-- Load the URDF to the parameter server -->
+    <!-- 1. Load the URDF to the parameter server -->
     <param name="robot_description" textfile="$(find chopsticks_two_description)/urdf/chopsticks_two.urdf"/>
-    <!-- Show in Rviz  -->
+    <!-- 2. Show in Rviz  -->
     <node name="rviz" pkg="rviz" type="rviz" args="-d $(find chopsticks_two_moveit_config)/launch/moveit.rviz"/>
 
     <!-- CORE  -->
-    <!-- Load controller settings  -->
+    <!-- 3. Load controller settings  -->
     <rosparam file="$(find chopsticks_two_driver)/config/chopsticks_two_controllers.yaml" command="load"/>
-    <!-- Load hardware interface -->
+    <!-- 4. Load hardware interface -->
     <node name="chopsticks_two_hw_main" pkg="chopsticks_two_driver" type="chopsticks_two_hw_main"
           output="screen"/> <!--TODO consistency in node naming hw or hardware -->
-    <!-- Load controller manager  -->
+    <!-- 5. Load controller manager  -->
     <node name="ros_control_controller_manager" pkg="controller_manager" type="controller_manager" respawn="false"
           output="screen" args="spawn joint_state_controller position_trajectory_controller"/>
-    <!-- Convert joint states to /tf tranforms -->
+    <!-- 6. Convert joint states to /tf tranforms -->
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
 
     <!-- MOVEIT -->
 
-    <!-- Load the URDF, SRDF and other .yaml configuration files on the param server -->
+    <!-- 7. Load the URDF, SRDF and other .yaml configuration files on the param server -->
     <include file="$(find chopsticks_two_moveit_config)/launch/planning_context.launch">
         <arg name="load_robot_description" value="true"/>
     </include>
     <!-- Remap follow_joint_trajectory -->
 <!--    <remap from="/joint_trajectory_action" to="/position_trajectory_controller/follow_joint_trajectory"/> &lt;!&ndash; the upper controller creates the Action server /position_..., but moveit creates /joint_tra..., so remap is neccassary&ndash;&gt;-->
 <!--    <remap from="position_trajectory_controller/follow_joint_trajectory" to="chopsticks_two_joint_trajectory_controller/follow_joint_trajectory"/> &lt;!&ndash; the upper controller creates the Action server /position_..., but moveit creates /joint_tra..., so remap is neccassary&ndash;&gt;-->
-    <!-- Run the main MoveIt executable without trajectory execution (we do not have controllers configured by default) -->
+    <!-- 8. Run the main MoveIt executable without trajectory execution (we do not have controllers configured by default) -->
     <include file="$(find chopsticks_two_moveit_config)/launch/move_group.launch">
         <arg name="allow_trajectory_execution" value="true"/>
 <!--        <arg name="fake_execution" value="false"/>-->
@@ -37,7 +37,7 @@
 
     <!-- HARDWARE -->
 
-    <!-- rosserial to teensy -->
+    <!-- 9. rosserial to teensy -->
     <node pkg="rosserial_arduino" type="serial_node.py" name="rosserial_arduino" output="screen" respawn="true">
 <!--&lt;!&ndash;        <rosparam>&ndash;&gt;-->
 <!--&lt;!&ndash;            port: /dev/teensy_main&ndash;&gt;-->
