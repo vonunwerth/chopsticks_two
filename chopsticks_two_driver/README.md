@@ -32,7 +32,9 @@ The implementation of all of the functions is done in the *src/chopsticks_two_ha
 
 On the left side of the image is the *killer_app*. That's just an App which for example uses the MoveIt! API to make something like AR code detection and calculations of where the robot should go to. As 3rd party tool then MoveIt! is used and commands a controller, for example a *JointTrajectoryController* to move the robot. This command is put to the *hardware_interface* which processes it and sends it to the real hardware (for example an Arduino here). The real hardware takes over the control of the motors then.
 
-[Detailed ROS control presentation](https://roscon.ros.org/2014/wp-content/uploads/2014/07/ros_control_an_overview.pdf)\\
-[Detailed Tutorial of ros_control](https://www.rosroboticslearning.com/ros-control)\\
+[Detailed ROS control presentation](https://roscon.ros.org/2014/wp-content/uploads/2014/07/ros_control_an_overview.pdf)
+
+[Detailed Tutorial of ros_control](https://www.rosroboticslearning.com/ros-control)
+
 [An other tutorial about ros_control](https://fjp.at/posts/ros/ros-control/)
 
