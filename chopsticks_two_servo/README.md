@@ -7,7 +7,7 @@ Servo motors must be connected to the pins **4, 5, 6, 7, 8, 13**. *VCC* of the A
 Servo wiring:
 
 |   |  Color |    Alternative |
-| --------- |:---|:---------|:-----|
+| --------- |:---|:---------|
 |   GND     |   BLACK         | BROWN |
 | +5V      | RED |  |
 |  SIGNAL     | YELLOW      | ORANGE  |
