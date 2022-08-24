@@ -5,6 +5,9 @@ Arduino project to interface six servo motors of a robotic arm via rosserial.
 Servo motors must be connected to the pins **4, 5, 6, 7, 8, 13**. *VCC* of the Arduino is not enough. You need to connect the motors to its own power supply. Connect *GND* of the Arduino to the *GND* you are using for the motors.
 
 Servo wiring:
+
+|   |  Color |    Alternative |
+| --------- |:---|:---------|:-----|
 |   GND     |   BLACK         | BROWN |
 | +5V      | RED |  |
 |  SIGNAL     | YELLOW      | ORANGE  |
