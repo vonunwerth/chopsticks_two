@@ -2,6 +2,9 @@
 Launch ```roslaunch chopsticks_two_driver chopsticks_two.launch``` to control the real hardware of the chopsticks_two robotic arm. 
 
 The launch file included several things which are mentioned in the comments of the launch file are described in the following table:
+
+|  Point in Code |  Description |
+| --------- |:---|
 | 1. Load the URDF      |  Loads the URDF description from the description package to the ROS parameter server.|
 | 2. rviz | Runs RViz to visualize the arm and let the user control it |
 | 3. Load controller settings | Loads the *.yaml* file for the controllers from the config folder of the driver. There also the frequency the whole control loop should run as is defined. |
